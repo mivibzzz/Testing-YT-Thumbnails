@@ -1,0 +1,58 @@
+{
+  "manifest_version": 3,
+  "name": "YouTube Thumbnail Preview by Mivi",
+  "version": "1.0.1",
+  "description": "Preview your custom thumbnails directly on YouTube to see how they'll look before uploading",
+  "author": "your@email.com",
+  
+  "permissions": [
+    "activeTab",
+    "storage"
+  ],
+  
+  "host_permissions": [
+    "*://*.youtube.com/*"
+  ],
+  
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.youtube.com/*"
+      ],
+      "js": ["content.js"],
+      "css": ["content.css"]
+    }
+  ],
+  
+  "web_accessible_resources": [{
+    "resources": ["icons/*"],
+    "matches": ["*://*.youtube.com/*"]
+  }],
+  
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self';"
+  },
+  
+  "minimum_chrome_version": "88",
+  
+  "background": {
+    "service_worker": "background.js"
+  }
+}

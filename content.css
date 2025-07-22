@@ -1,0 +1,5 @@
+// content.css
+.yt-thumb-preview-active {
+  border: 2px solid #ff0000;
+  transition: border-color 0.3s ease;
+}
